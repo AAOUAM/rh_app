@@ -1,0 +1,79 @@
+<header>
+  <img ngSrc="assets/LOGO-WILAYA.png" height="70" width="70" class="ml-3 mt-1 mb-1"/>
+  <div class="menu">
+    <ul>
+      <li>
+        <a routerLink="/home"><i class="bi bi-house-door"></i> Page d'accueil</a>
+      </li>
+
+      <li>
+        <a routerLink="/absence"><i class="bi bi-calendar-x"></i> Mes demandes d'absences</a>
+      </li>
+
+      <li>
+        <a href="#"><i class="bi bi-book"></i> Mes formations</a>
+      </li>
+
+      <li>
+        <a routerLink="/dossier"><i class="bi bi-folder"></i> Mon dossier</a>
+      </li>
+
+      <li>
+        <a class="text-danger font-weight-bold" routerLink="/login"><i class="bi bi-box-arrow-right"></i> Se déconnecter</a>
+      </li>
+
+    </ul>
+  </div>
+</header>
+
+<body>
+  <div class="row mt-4">
+    <div class="col-12 text-center">
+      <h1>Bienvenue à votre espace ,</h1>
+      <h3>{{ HomeComponent.sexe }} {{HomeComponent.nom}} {{HomeComponent.prenom}}</h3>
+      <p class="mt-2">Gérez vos absences, formations et dossier personnel facilement.</p>
+    </div>
+  </div>
+
+
+  <div class="mr-5 mt-4 ml-5 " >
+    <div class="row ">
+      <div class="col-md-4">
+        <div class="card shadow mr-3">
+          <div class="card-body text-center">
+            <h5 class="card-title mt-2">Mes demandes d'absences</h5>
+            <p class="card-text mb-5 mt-1">Soumettez et suivez vos demandes d'absences.</p>
+            <a href="#" class="btn btn-info p-2 mb-2">Accéder</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 ">
+        <div class="card shadow mr-3">
+          <div class="card-body text-center">
+            <h5 class="card-title mt-2">Mes formations</h5>
+            <p class="card-text mb-5 mt-1">Consultez et gérez vos formations.</p>
+            <a href="#" class="btn btn-info p-2 mb-2">Accéder</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow ml-3">
+          <div class="card-body text-center">
+            <h5 class="card-title mt-2">Mon dossier</h5>
+            <p class="card-text mb-5 mt-1">Accédez à vos informations </p>
+            <a href="#" class="btn btn-info p-2 mb-2">Accéder</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<!-- Footer -->
+<footer class="bg-light text-center fixed-bottom">
+  <div class="p-3">
+    <p>© 2024 Application RH. Tous droits réservés.</p>
+  </div>
+</footer>
+
+

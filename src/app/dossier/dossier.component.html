@@ -1,0 +1,143 @@
+<header>
+  <img src="assets/LOGO-WILAYA.png" height="70" width="70" class="ml-3 mt-1 mb-1"/>
+  <div class="menu">
+    <ul>
+      <li>
+        <a routerLink="/home"><i class="bi bi-house-door"></i> Page d'accueil</a>
+      </li>
+      <li>
+        <a routerLink="/absence"><i class="bi bi-calendar-x"></i> Mes demandes d'absences</a>
+      </li>
+      <li>
+        <a href="#"><i class="bi bi-book"></i> Mes formations</a>
+      </li>
+      <li>
+        <a routerLink="/dossier"><i class="bi bi-folder"></i> Mon dossier</a>
+      </li>
+      <li>
+        <a class="text-danger font-weight-bold" routerLink="/login"><i class="bi bi-box-arrow-right"></i> Se déconnecter</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<div class="mt-4 d-flex justify-content-between align-items-center mb-4">
+  <h1 class=" ml-5">Mes informations</h1>
+  <button routerLink ='/' class="btn btn-info p-1 text-white mr-3"><i class="bi bi-paperclip"></i>Pièces Jointes</button>
+</div>
+
+<div class="mb-5">
+  <div class="row ">
+    <!-- Navigation à gauche -->
+    <div class="col-md-3 mr-auto ml-auto mt-4">
+      <div class="list-group">
+        <button type="button" class="btn btn-dark mb-5 p-2" (click)="selectSection('personnelle')">
+          Informations Personnelles
+        </button>
+        <button type="button" class="btn btn-dark mb-5 p-2" (click)="selectSection('familiale')">
+          Informations Familiales
+        </button>
+        <button type="button" class="btn btn-dark mb-5 p-2" (click)="selectSection('administrative')">
+          Informations Administratives
+        </button>
+        <button type="button" class="btn btn-dark mb-5 p-2" (click)="selectSection('prevoyance')">
+          Informations de Prévoyance Sociale
+        </button>
+      </div>
+    </div>
+
+    <!-- Informations personnelles -->
+    <div class="col-md-7 mr-auto ">
+      <!-- Informations Personnelles -->
+      <div *ngIf="selectedSection === 'personnelle'" class="card shadow mb-4">
+        <div class="card-header bg-primary text-white d-flex justify-content-between">
+          <span class="ml-2 p-1"> <strong>Informations Personnelles</strong></span>
+          <button class="btn btn-light mr-2 bg-transparent border-0" (click)="editSection('personnelle')"> <i class="bi bi-pen p-1 text-black"></i> </button>
+        </div>
+        <div class="card-body d-flex">
+          <div class="mr-4 p-2">
+            <p><strong>Numéro de la carte nationale d'identié :</strong> {{ dossier.cin }}</p>
+            <p><strong>Nom :</strong> {{ dossier.nom }}</p>
+            <p><strong>Prénom :</strong> {{ dossier.prenom }}</p>
+            <p><strong>Sexe :</strong> {{ dossier.sexe }}</p>
+            <p><strong>Date de naissance :</strong> {{ dossier.dateNaissance }}</p>
+            <p><strong>Lieu de naissance :</strong> {{ dossier.lieuNaissance }}</p>
+            <p><strong>Adresse :</strong> {{ dossier.adresse }}</p>
+            <p><strong>Téléphone :</strong> {{ dossier.numTel }}</p>
+            <p><strong>Email :</strong> {{ dossier.email }}</p>
+          </div>
+
+          <div class="mr-5 mt-5 ml-auto">
+            <img src="assets/profile-photo.webp" alt="Profile Photo" class="img-fluid rounded-circle" width="150" height="150">
+          </div>
+        </div>
+      </div>
+
+      <!-- Informations Familiales -->
+      <div *ngIf="selectedSection === 'familiale'" class="card shadow mb-4">
+        <div class="card-header bg-secondary text-white d-flex justify-content-between">
+          <span class="ml-2 p-1"> <strong>Informations Familiales</strong></span>
+          <button class="btn btn-light mr-2 bg-transparent border-0" (click)="editSection('familiale')">
+            <i class="bi bi-pen p-1 text-black"></i>
+          </button>
+        </div>
+        <div class="card-body p-2">
+          <p><strong>Nom du Père :</strong> {{ dossier.nomPere }}</p>
+          <p><strong>Nom de la Mère :</strong> {{ dossier.nomMere }}</p>
+          <p><strong>Situation Familiale :</strong> {{ dossier.situationFamiliale }}</p>
+          <p><strong>Date de Mariage :</strong> {{ dossier.dateMariage }}</p>
+          <p><strong>Nom du Conjoint :</strong> {{ dossier.nomConjoint }}</p>
+          <p><strong>CIN du Conjoint :</strong> {{ dossier.cinConjoint }}</p>
+          <p><strong>Date de Naissance du Conjoint :</strong> {{ dossier.dateNaissanceConjoint }}</p>
+          <p><strong>Fonction du Conjoint :</strong> {{ dossier.fonctionConjoint }}</p>
+          <p><strong>Nombre d'Enfants :</strong> {{ dossier.nombreEnfants }}</p>
+          <div *ngFor="let enfant of dossier.listEnfants">
+            <p><strong>Prénom de l'Enfant :</strong> {{ enfant.prenom }}</p>
+            <p><strong>Date de Naissance :</strong> {{ enfant.dateNaissance }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Informations Administratives -->
+      <div *ngIf="selectedSection === 'administrative'" class="card shadow mb-4">
+        <div class="card-header bg-success text-white d-flex justify-content-between">
+          <span class="ml-2 p-1"> <strong>Informations Administratives</strong></span>
+          <button class="btn btn-light mr-2 bg-transparent border-0" (click)="editSection('administrative')">
+            <i class="bi bi-pen p-1 text-black"></i>
+          </button>
+        </div>
+        <div class="card-body p-2">
+          <p><strong>Numéro d'employé :</strong> {{ dossier.numeroEmploye }}</p>
+          <p><strong>Département :</strong> {{ dossier.departement }}</p>
+          <p><strong>Poste :</strong> {{ dossier.poste }}</p>
+          <p><strong>Date d'embauche :</strong> {{ dossier.dateEmbauche }}</p>
+          <p><strong>Numéro de sécurité sociale :</strong> {{ dossier.numeroSecuriteSociale }}</p>
+          <p><strong>Mutuelle :</strong> {{ dossier.mutuelle }}</p>
+          <p><strong>Régime de retraite :</strong> {{ dossier.regimeRetraite }}</p>
+        </div>
+      </div>
+
+      <!-- Informations de Prévoyance Sociale -->
+      <div *ngIf="selectedSection === 'prevoyance'" class="card shadow mb-4">
+        <div class="card-header bg-danger text-white d-flex justify-content-between">
+          <span class="ml-2 p-1"> <strong>Informations de Prévoyance Sociale</strong></span>
+          <button class="btn btn-light mr-2 bg-transparent border-0" (click)="editSection('prevoyance')">
+            <i class="bi bi-pen p-1 text-black"></i>
+          </button>
+        </div>
+        <div class="card-body p-2">
+          <p><strong>Numéro d'affiliation de retraite :</strong> {{ dossier.numeroSecuriteSociale }}</p>
+          <p><strong>Mutuelle :</strong> {{ dossier.mutuelle }}</p>
+          <p><strong>Régime de retraite :</strong> {{ dossier.regimeRetraite }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer class="bg-light text-center ">
+  <div class="p-1">
+    <p>© 2024 Application RH. Tous droits réservés.</p>
+  </div>
+</footer>

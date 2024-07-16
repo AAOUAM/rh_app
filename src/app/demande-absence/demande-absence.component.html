@@ -1,0 +1,84 @@
+<header>
+  <img src="assets/LOGO-WILAYA.png" height="70" width="70" class="ml-3 mt-1 mb-1"/>
+  <div class="menu">
+    <ul>
+      <li>
+        <a routerLink="/home"><i class="bi bi-house-door"></i> Page d'accueil</a>
+      </li>
+
+      <li>
+        <a routerLink="/absence"><i class="bi bi-calendar-x"></i> Mes demandes d'absences</a>
+      </li>
+
+      <li>
+        <a href="#"><i class="bi bi-book"></i> Mes formations</a>
+      </li>
+
+      <li>
+        <a routerLink="/dossier"><i class="bi bi-folder"></i> Mon dossier</a>
+      </li>
+
+      <li>
+        <a class="text-danger font-weight-bold" routerLink="/login"><i class="bi bi-box-arrow-right"></i> Se déconnecter</a>
+      </li>
+
+    </ul>
+  </div>
+</header>
+
+
+<div class="mt-4 ml-3 d-flex justify-content-between align-items-center mb-4">
+  <h1 class=" ml-5">Mes absences</h1>
+</div>
+
+<div class="container mt-4 ml-5 text-center">
+
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div class="d-flex align-items-center ml-5">
+      <label for="periode" class="me-2">Filtrer par période:</label>
+      <input type="date" id="periode" name="periode" class="ml-2">
+    </div>
+
+    <div class="input-group w-50 ml-4">
+      <input type="text" class="form-control" placeholder="Rechercher...">
+      <button class="btn btn-outline-success" type="button">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+
+    <button class="btn btn-primary p-1 ml-0 float-right" routerLink="/formabsence">
+      <i class="bi bi-plus"></i> Ajouter une demande
+    </button>
+  </div>
+
+  <div class=" ml-5 mt-4 card ">
+    <table class="table">
+      <thead>
+      <tr class="bg-light">
+        <th>Numero dossier</th>
+        <th>Date début</th>
+        <th>Date fin</th>
+        <th>Nombre de jours</th>
+        <th>Type d'absence</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let d of dossiers">
+        <td>{{d.numerodossier}}</td>
+        <td>{{d.datedebut}}</td>
+        <td>{{d.datefin}}</td>
+        <td>{{d.nombrejours}}</td>
+        <td>{{d.motif}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<footer class="bg-light text-center mt-5">
+  <div class="p-3">
+    <p>© 2024 Application RH. Tous droits réservés.</p>
+  </div>
+</footer>

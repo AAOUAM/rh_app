@@ -1,0 +1,123 @@
+<header>
+  <img src="assets/LOGO-WILAYA.png" height="70" width="70" class="ml-3 mt-1 mb-1"/>
+  <div class="menu">
+    <ul>
+      <li>
+        <a routerLink="/home"><i class="bi bi-house-door"></i> Page d'accueil</a>
+      </li>
+
+      <li>
+        <a routerLink="/absence"><i class="bi bi-calendar-x"></i> Mes demandes d'absences</a>
+      </li>
+
+      <li>
+        <a href="#"><i class="bi bi-book"></i> Mes formations</a>
+      </li>
+
+      <li>
+        <a href="#"><i class="bi bi-folder"></i> Mon dossier</a>
+      </li>
+
+      <li>
+        <a class="text-danger font-weight-bold" routerLink="/login"><i class="bi bi-box-arrow-right"></i> Se déconnecter</a>
+      </li>
+
+    </ul>
+  </div>
+</header>
+
+
+<div class="mt-4 d-flex justify-content-center">
+  <div class="card col-md-6 p-4">
+    <div class="d-flex justify-content-between mb-3">
+      <button class="btn btn-outline-primary p-2" (click)="setLanguage('fr')">Fr</button>
+      <button class="btn btn-outline-primary p-2" (click)="setLanguage('ar')">Ar</button>
+    </div>
+    <h4 class="mb-3 text-center">Ma demande d'absence / طلب رخصة ادارية</h4>
+
+    <form *ngIf="language === 'fr'" [formGroup]="absenceForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="nom_complet_fr" class="form-label">Nom complet *</label>
+        <input type="text" class="form-control" id="nom_complet_fr" formControlName="nom_complet" placeholder="Nom et prénom" required>
+      </div>
+      <div class="mb-3">
+        <label for="cin_fr" class="form-label">CIN *</label>
+        <input type="text" class="form-control" id="cin_fr" formControlName="cin" placeholder="Numéro de la carte nationale d'identité" required>
+      </div>
+      <div class="mb-3">
+        <label for="remplaçant_fr" class="form-label">Remplaçant *</label>
+        <input type="text" class="form-control" id="remplacant_fr" formControlName="remplacant" placeholder="Nom du remplaçant" required>
+      </div>
+      <div class="mb-3">
+        <label for="grade_fr" class="form-label">Grade *</label>
+        <input type="text" class="form-control" id="grade_fr" formControlName="grade" placeholder="Votre grade" required>
+      </div>
+      <div class="mb-3">
+        <label for="department_fr" class="form-label">Département *</label>
+        <input type="text" class="form-control" id="department_fr" formControlName="department" placeholder="Votre département" required>
+      </div>
+      <div class="mb-3">
+        <label for="duration_fr" class="form-label">Durée *</label>
+        <input type="number" class="form-control" id="duration_fr" formControlName="duration" placeholder="Durée de l'absence en jours" required>
+      </div>
+      <div class="mb-3">
+        <label for="start_date_fr" class="form-label">Date de début *</label>
+        <input type="date" class="form-control" id="start_date_fr" formControlName="start_date" required>
+      </div>
+      <div class="mb-3">
+        <label for="end_date_fr" class="form-label">Date de fin *</label>
+        <input type="date" class="form-control" id="end_date_fr" formControlName="end_date" required>
+      </div>
+      <div class="mb-3">
+        <label for="reason_fr" class="form-label">Motif *</label>
+        <input type="text" class="form-control" id="reason_fr" formControlName="reason" placeholder="Motif de l'absence" required>
+      </div>
+      <div class="d-flex justify-content-center p-3">
+        <button type="submit" class="btn btn-success mt-3 p-2">Je confirme</button>
+      </div>
+    </form>
+
+    <form *ngIf="language === 'ar'" class="rtl" [formGroup]="absenceForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="nom_complet_ar" class="form-label">الاسم الشخصي و العائلي *</label>
+        <input type="text" class="form-control" id="nom_complet_ar" formControlName="nom_complet" placeholder="الاسم الشخصي و العائلي" required>
+      </div>
+      <div class="mb-3">
+        <label for="cin_ar" class="form-label">رقم البطاقة الوطنية *</label>
+        <input type="text" class="form-control" id="cin_ar" formControlName="cin" placeholder="رقم البطاقة الوطنية" required>
+      </div>
+      <div class="mb-3">
+        <label for="remplacant_ar" class="form-label">الموظف الذي ينوب عنه *</label>
+        <input type="text" class="form-control" id="remplacant_ar" formControlName="remplacant" placeholder="اسم الموظف الذي ينوب عنه" required>
+      </div>
+      <div class="mb-3">
+        <label for="grade_ar" class="form-label">الدرجة *</label>
+        <input type="text" class="form-control" id="grade_ar" formControlName="grade" placeholder="الدرجة" required>
+      </div>
+      <div class="mb-3">
+        <label for="department_ar" class="form-label">القسم او المصلحة *</label>
+        <input type="text" class="form-control" id="department_ar" formControlName="department" placeholder="القسم او المصلحة" required>
+      </div>
+      <div class="mb-3">
+        <label for="duration_ar" class="form-label">مدة الرخصة *</label>
+        <input type="number" class="form-control" id="duration_ar" formControlName="duration" placeholder="مدة الرخصة بالأيام" required>
+      </div>
+      <div class="mb-3">
+        <label for="start_date_ar" class="form-label">تاريخ مغادرة العمل *</label>
+        <input type="date" class="form-control" id="start_date_ar" formControlName="start_date" required>
+      </div>
+      <div class="mb-3">
+        <label for="end_date_ar" class="form-label">تاريخ استئناف العمل *</label>
+        <input type="date" class="form-control" id="end_date_ar" formControlName="end_date" required>
+      </div>
+      <div class="mb-3">
+        <label for="reason_ar" class="form-label">نوع الغياب *</label>
+        <input type="text" class="form-control" id="reason_ar" formControlName="reason" placeholder="سبب الغياب" required>
+      </div>
+      <div class="d-flex justify-content-center p-3">
+        <button type="submit" class="btn btn-success mt-3 p-2">أؤكد</button>
+      </div>
+    </form>
+  </div>
+</div>
+

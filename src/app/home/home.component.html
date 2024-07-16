@@ -1,0 +1,9 @@
+<div>
+  <ng-container *ngIf="userType === 'user'">
+    <app-home-user></app-home-user>
+  </ng-container>
+  <ng-container *ngIf="userType === 'admin'">
+    <app-home-admin></app-home-admin>
+  </ng-container>
+</div>
+

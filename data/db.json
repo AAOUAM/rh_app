@@ -1,0 +1,16 @@
+{
+  "personnel": [
+    {},
+    {},
+    {}
+  ],
+  "demande-absence" : [
+    { "numerodossier" : 1 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 10 ,"motif" : "Congé"},
+    { "numerodossier" : 2 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 50 ,"motif" : "maladie"},
+    { "numerodossier" : 3 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 400 ,"motif" : "Hajj"},
+    { "numerodossier" : 4 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 10 ,"motif" : "mission"},
+    { "numerodossier" : 5 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 60 ,"motif" : "Congé"},
+    { "numerodossier" : 5 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 60 ,"motif" : "Congé"},
+    { "numerodossier" : 5 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 60 ,"motif" : "Congé"}
+  ]
+}
