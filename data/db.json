@@ -1,16 +1,24 @@
 {
-  "personnel": [
-    {},
-    {},
-    {}
+  "infos-personnelles": [
+    {"cin": "J000000", "nom": "Doe", "prenom": "John", "sexe": "Masculin", "dateNaissance": "1990-01-01", "lieuNaissance": "Agadir", "adresse": "123 Rue Principale, Agadir", "numTel": "+212123456789", "email": "john.doe@example.com"},
+    {"cin": "J456789", "nom": "Doe", "prenom": "John", "sexe": "Masculin", "dateNaissance": "1990-01-01", "lieuNaissance": "Agadir", "adresse": "123 Rue Principale, Agadir", "numTel": "+212123456789", "email": "john.doe@example.com"},
+    {"cin": "J789461", "nom": "Doe", "prenom": "John", "sexe": "Masculin", "dateNaissance": "1990-01-01", "lieuNaissance": "Agadir", "adresse": "123 Rue Principale, Agadir", "numTel": "+212123456789", "email": "john.doe@example.com"},
+    {"cin": "1234567890", "nom": "Doe", "prenom": "John", "sexe": "Masculin", "dateNaissance": "1990-01-01", "lieuNaissance": "Agadir", "adresse": "123 Rue Principale, Agadir", "numTel": "+212123456789", "email": "john.doe@example.com"},
+    {"cin": "J785410", "nom": "Doe", "prenom": "John", "sexe": "Masculin", "dateNaissance": "1990-01-01", "lieuNaissance": "Agadir", "adresse": "123 Rue Principale, Agadir", "numTel": "+212123456789", "email": "john.doe@example.com"},
+    {"cin": "1234567890", "nom": "Doe", "prenom": "John", "sexe": "Masculin", "dateNaissance": "1990-01-01", "lieuNaissance": "Agadir", "adresse": "123 Rue Principale, Agadir", "numTel": "+212123456789", "email": "john.doe@example.com"}
   ],
+
+  "infos-administratives": [
+
+  ],
+
   "demande-absence" : [
-    { "numerodossier" : 1 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 10 ,"motif" : "Congé"},
-    { "numerodossier" : 2 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 50 ,"motif" : "maladie"},
-    { "numerodossier" : 3 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 400 ,"motif" : "Hajj"},
-    { "numerodossier" : 4 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 10 ,"motif" : "mission"},
-    { "numerodossier" : 5 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 60 ,"motif" : "Congé"},
-    { "numerodossier" : 5 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 60 ,"motif" : "Congé"},
-    { "numerodossier" : 5 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 60 ,"motif" : "Congé"}
+    { "numerodossier" : 1 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 10 ,"motif" : "Congé" ,"etatdemande" : "validé"},
+    { "numerodossier" : 2 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 50 ,"motif" : "maladie" ,"etatdemande" : "refusé"},
+    { "numerodossier" : 3 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 400 ,"motif" : "Hajj" ,"etatdemande" : "refusé"},
+    { "numerodossier" : 4 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 10 ,"motif" : "mission" ,"etatdemande" : "validé"},
+    { "numerodossier" : 5 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 60 ,"motif" : "Congé" ,"etatdemande" : "validé"},
+    { "numerodossier" : 5 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 60 ,"motif" : "sanction" ,"etatdemande" : "  "},
+    { "numerodossier" : 5 , "datedebut" : "12/11/2003","datefin" : "12/11/2005" , "nombrejours" : 60 ,"motif" : "Congé" ,"etatdemande" : "validé"}
   ]
 }

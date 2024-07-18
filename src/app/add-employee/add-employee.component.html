@@ -1,0 +1,188 @@
+<header>
+  <img ngSrc="assets/LOGO-WILAYA.png" height="70" width="70" class="ml-3 mt-1 mb-1"/>
+  <div class="menu font-weight-bold">
+    <ul>
+      <li>
+        <a  routerLink="/home" > <i class="bi bi-house "></i> Page d'accueil </a>
+      </li>
+
+      <li>
+        <a  routerLink="/admin-employees" ><i class="bi bi-people"></i> Personnel</a>
+      </li>
+
+      <li>
+        <a routerLink="/admin-absences"  ><i class="bi bi-folder"></i> Absences</a>
+      </li>
+
+      <li>
+        <a  id="profile" routerLink="/admin-profile" ><i class="bi bi-person"></i> Mon profil</a>
+      </li>
+
+
+      <li>
+        <a class="text-danger" routerLink="/login"><i class="bi bi-box-arrow-right"></i> Se déconnecter</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+
+      <mat-card-title>
+        <img src="../../assets/Souss-massa-region.png" height="90" width="90"  class="ml-3" alt="logo" />
+        employee personal information</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div class="mb-3">
+        <form class="row">
+          <div class="col-md-6">
+            <label for="nom" class="form-label">nom</label>
+            <input type="email" class="form-control form-control-sm " id="nom" placeholder="nom">
+          </div>
+          <div class="col-md-6">
+            <label for="prenom" class="form-label ">prenom</label>
+            <input type="email" class="form-control form-control-sm " id="prenom" placeholder="prenom">
+          </div>
+          <div class="col-md-6">
+            <label for="email" class="form-label ">Email address</label>
+            <input type="email" class="form-control form-control-sm " id="email" placeholder="name@example.com">
+          </div>
+          <div class="col-md-6">
+            <label for="cin" class="form-label">CIN</label>
+            <input type="email" class="form-control form-control-sm" id="cin" placeholder="CIN">
+          </div>
+          <div class="col-md-6">
+            <label for="adresse" class="form-label">Adresse</label>
+            <input type="email" class="form-control form-control-sm" id="adresse" placeholder="Adresse">
+          </div>
+          <div class="col-md-6">
+            <label for="Date de naissance" class="form-label">date de naissance</label>
+            <input type="datetime-local" class="form-control form-control-sm" id="Date de naissance" >
+          </div>
+          <div class="col-md-6">
+            <label for="lieu_naissance" class="form-label">Lieu de naissance</label>
+            <input type="email" class="form-control form-control-sm" id="lieu_naissance" placeholder="Lieu de naissance">
+          </div>
+        </form>
+      </div>
+      <button mat-raised-button color="primary" class="submit-information">submit</button>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
+
+
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <img src="../../assets/Souss-massa-region.png" height="90" width="90"  class="ml-3" alt="logo" />
+        employee administrative information</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div class="mb-3">
+        <form class="row">
+          <div class="col-md-6">
+            <label for="nom_pere" class="form-label">Nom de père</label>
+            <input type="text" class="form-control form-control-sm" id="nom_pere" placeholder="Nom de père">
+          </div>
+          <div class="col-md-6">
+            <label for="nom_mere" class="form-label">Nom de la mère</label>
+            <input type="text" class="form-control form-control-sm" id="nom_mere" placeholder="Nom de la mère">
+          </div>
+          <div class="col-md-6">
+            <label for="situation_familiale" class="form-label">Situation familiale</label>
+            <input type="text" class="form-control form-control-sm" id="situation_familiale" placeholder="Situation familiale">
+          </div>
+          <div class="col-md-6">
+            <label for="Date de marriage" class="form-label">date de marriage</label>
+            <input type="datetime-local" class="form-control form-control-sm" id="Date de marriage" >
+          </div>
+          <div class="col-md-6">
+            <label for="nom_conjoint" class="form-label">Nom du conjoint</label>
+            <input type="text" class="form-control form-control-sm" id="nom_conjoint" placeholder="Nom du conjoint">
+          </div>
+          <div class="col-md-6">
+            <label for="cin_conjoint" class="form-label">CIN du conjoint</label>
+            <input type="text" class="form-control form-control-sm" id="cin_conjoint" placeholder="CIN du conjoint">
+          </div>
+          <div class="col-md-6">
+            <label for="Date de naissance" class="form-label">date de naissance</label>
+            <input type="datetime-local" class="form-control form-control-sm" id="Date de naissance" >
+          </div>
+          <div class="col-md-6">
+            <label for="fonction_conjoint" class="form-label">Fonction du conjoint</label>
+            <input type="text" class="form-control form-control-sm" id="fonction_conjoint" placeholder="Fonction du conjoint">
+          </div>
+          <div class="col-md-6">
+            <label for="nombre_enfants" class="form-label">Nombre d'enfants</label>
+            <input type="text" class="form-control form-control-sm" id="nombre_enfants" placeholder="Nombre d'enfants">
+          </div>
+        </form>
+      </div>
+      <button mat-raised-button color="primary" class="submit-information">submit</button>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <img src="../../assets/Souss-massa-region.png" height="90" width="90"  class="ml-3" alt="logo" />
+        employee familly information</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div class="mb-3">
+        <form class="row">
+          <div class="col-md-6">
+            <label for="ppr" class="form-label">PPR (numéro d'immatriculation)</label>
+            <input type="text" class="form-control form-control-sm" id="ppr" placeholder="PPR">
+          </div>
+          <div class="col-md-6">
+            <label for="num_pb" class="form-label">Num post budgétaire (PB)</label>
+            <input type="text" class="form-control form-control-sm" id="num_pb" placeholder="Num post budgétaire">
+          </div>
+          <div class="col-md-6">
+            <label for="diplome_recrutement" class="form-label">Diplôme de recrutement</label>
+            <input type="text" class="form-control form-control-sm" id="diplome_recrutement" placeholder="Diplôme de recrutement">
+          </div>
+          <div class="col-md-6">
+            <label for="admin_recrutement" class="form-label">Administration de recrutement</label>
+            <input type="text" class="form-control form-control-sm" id="admin_recrutement" placeholder="Administration de recrutement">
+          </div>
+          <div class="col-md-6">
+            <label for="grade" class="form-label">Grade</label>
+            <input type="text" class="form-control form-control-sm" id="grade" placeholder="Grade">
+          </div>
+          <div class="col-md-6">
+            <label for="echelle" class="form-label">Échelle</label>
+            <input type="text" class="form-control form-control-sm" id="echelle" placeholder="Échelle">
+          </div>
+          <div class="col-md-6">
+            <label for="statut" class="form-label">Statut</label>
+            <input type="text" class="form-control form-control-sm" id="statut" placeholder="Statut">
+          </div>
+          <div class="col-md-6">
+            <label for="situation_administrative" class="form-label">Situation administrative</label>
+            <input type="text" class="form-control form-control-sm" id="situation_administrative" placeholder="Situation administrative">
+          </div>
+
+
+        </form>
+      </div>
+      <button mat-raised-button color="primary" class="submit-information">submit</button>
+    </mat-card-content>
+  </mat-card>
+
+</div>

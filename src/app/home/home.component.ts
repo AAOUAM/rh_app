@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  userType: string = 'user';// or 'admin'
+  userType: string = 'admin';// or 'admin'
   nom : string = 'AAOUAM';
   prenom : string = 'Zakaria';
   sexe: string = 'Monsieur'; // or 'Madame'

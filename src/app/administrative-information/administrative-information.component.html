@@ -1,0 +1,162 @@
+<header>
+  <img ngSrc="assets/LOGO-WILAYA.png" height="70" width="70" class="ml-3 mt-1 mb-1"/>
+  <div class="menu font-weight-bold">
+    <ul>
+      <li>
+        <a  routerLink="/home" > <i class="bi bi-house "></i> Page d'accueil </a>
+      </li>
+
+      <li>
+        <a  routerLink="/admin-employees" ><i class="bi bi-people"></i> Personnel</a>
+      </li>
+
+      <li>
+        <a routerLink="/admin-absences"  ><i class="bi bi-folder"></i> Absences</a>
+      </li>
+
+      <li>
+        <a  id="profile" routerLink="/admin-profile" ><i class="bi bi-person"></i> Mon profil</a>
+      </li>
+
+
+      <li>
+        <a class="text-danger" routerLink="/login"><i class="bi bi-box-arrow-right"></i> Se déconnecter</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+
+
+<section class="vh-100" style="background-color: #f4f5f7;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-10 mb-4 mb-lg-0">
+        <div class="card mb-3" style="border-radius: .5rem; font-size: 1.2rem;">
+          <div class="row g-0">
+            <div class="col-md-4 gradient-custom text-center text-white"
+                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <img src="../../assets/Souss-massa-region.png" height="90" width="90"  class="ml-3" alt="logo" />
+              <h5 style="font-size: 1.5rem;">Marie Horwitz</h5> <!-- Augmenter la taille de la police -->
+              <p style="font-size: 1.3rem;">Web Designer</p> <!-- Augmenter la taille de la police -->
+              <i class="far fa-edit mb-5" style="font-size: 1.5rem;"></i> <!-- Augmenter la taille de l'icône -->
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h6 style="font-size: 1.4rem;">Informations Personnelles</h6> <!-- Augmenter la taille de la police -->
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <label for="email" style="font-size: 1.3rem;">Email</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="email" class="form-control" value="info@example.com">
+                  </div>
+                  <div class="col-6 mb-3">
+                    <label for="phone" style="font-size: 1.3rem;">Phone</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="phone" class="form-control" value="123 456 789">
+                  </div>
+                </div>
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <label for="cin" style="font-size: 1.3rem;">CIN</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="cin" class="form-control" value="AB123456">
+                  </div>
+                  <div class="col-6 mb-3">
+                    <label for="nom" style="font-size: 1.3rem;">Nom</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="nom" class="form-control" value="Marie Horwitz">
+                  </div>
+                </div>
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <label for="poste" style="font-size: 1.3rem;">Poste de travail</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="poste" class="form-control" value="Web Designer">
+                  </div>
+                  <div class="col-6 mb-3">
+                    <label for="sexe" style="font-size: 1.3rem;">Sexe</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="sexe" class="form-control" value="Féminin">
+                  </div>
+                </div>
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <label for="date_naissance" style="font-size: 1.3rem;">Date de naissance</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="date_naissance" class="form-control" value="01/01/1990">
+                  </div>
+                </div>
+                <h6 style="font-size: 1.4rem;">Informations Administratives</h6> <!-- Augmenter la taille de la police -->
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <label for="ppr" style="font-size: 1.3rem;">PPR (Numéro d'immatriculation)</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="ppr" class="form-control" value="PPR123456">
+                  </div>
+                  <div class="col-6 mb-3">
+                    <label for="num_pb" style="font-size: 1.3rem;">Numéro de poste budgétaire (PB)</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="num_pb" class="form-control" value="PB789012">
+                  </div>
+                </div>
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <label for="diplome_recrutement" style="font-size: 1.3rem;">Diplôme de recrutement</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="diplome_recrutement" class="form-control" value="Diplôme ABC">
+                  </div>
+                  <div class="col-6 mb-3">
+                    <label for="admin_recrutement" style="font-size: 1.3rem;">Administration de recrutement</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="admin_recrutement" class="form-control" value="Admin XYZ">
+                  </div>
+                </div>
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <label for="grade" style="font-size: 1.3rem;">Grade</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="grade" class="form-control" value="Grade 5">
+                  </div>
+                  <div class="col-6 mb-3">
+                    <label for="echelle" style="font-size: 1.3rem;">Échelle</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="echelle" class="form-control" value="Échelle 3">
+                  </div>
+                </div>
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <label for="status" style="font-size: 1.3rem;">Statut</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="status" class="form-control" value="Actif">
+                  </div>
+                  <div class="col-6 mb-3">
+                    <label for="situation_administrative" style="font-size: 1.3rem;">Situation administrative</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="situation_administrative" class="form-control" value="En fonction">
+                  </div>
+                </div>
+                <h6 style="font-size: 1.4rem;">Informations Familiales</h6> <!-- Augmenter la taille de la police -->
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <label for="nom_pere" style="font-size: 1.3rem;">Nom du père</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="nom_pere" class="form-control" value="">
+                  </div>
+                  <div class="col-6 mb-3">
+                    <label for="nom_mere" style="font-size: 1.3rem;">Nom de la mère</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="nom_mere" class="form-control" value="">
+                  </div>
+                  <div class="col-6 mb-3">
+                    <label for="situation_familiale" style="font-size: 1.3rem;">Situation familiale</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="situation_familiale" class="form-control" value="">
+                  </div>
+                  <div class="col-6 mb-3">
+                    <label for="date_mariage" style="font-size: 1.3rem;">Date de mariage</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="date_mariage" class="form-control" value="">
+                  </div>
+                  <div class="col-6 mb-3">
+                    <label for="nom_conjoint" style="font-size: 1.3rem;">Nom du conjoint</label> <!-- Augmenter la taille de la police -->
+                    <input type="text" id="nom_conjoint" class="form-control" value="">
+                  </div>
+                </div>
+                <div class="d-flex justify-content-start">
+                  <a href="#!"><i class="fab fa-facebook-f fa-lg me-3" style="font-size: 1.5rem;"></i></a>
+                  <a href="#!"><i class="fab fa-twitter fa-lg me-3" style="font-size: 1.5rem;"></i></a>
+                  <a href="#!"><i class="fab fa-instagram fa-lg" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

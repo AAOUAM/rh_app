@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {HomeComponent} from "../home/home.component";
 
 @Component({
   selector: 'app-home-admin',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './home-admin.component.css'
 })
 export class HomeAdminComponent {
-  currentname : string ='ZIKO';
+  constructor(protected HomeComponent: HomeComponent) {
 
+  }
 }

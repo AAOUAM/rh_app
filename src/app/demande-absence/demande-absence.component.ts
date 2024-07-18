@@ -8,6 +8,7 @@ import {DemandeAbsenceService} from "../services/demande-absence.service";
   styleUrl: './demande-absence.component.css'
 })
 export class DemandeAbsenceComponent implements OnInit{
+
   dossiers :Array<any> = [];
 
   constructor(private da : DemandeAbsenceService){}

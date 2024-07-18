@@ -1,0 +1,82 @@
+<header>
+  <img ngSrc="assets/LOGO-WILAYA.png" height="70" width="70" class="ml-3 mt-1 mb-1"/>
+  <div class="menu font-weight-bold">
+    <ul>
+      <li>
+        <a  routerLink="/home" > <i class="bi bi-house "></i> Page d'accueil </a>
+      </li>
+
+      <li>
+        <a  routerLink="/admin-employees" ><i class="bi bi-people"></i> Personnel</a>
+      </li>
+
+      <li>
+        <a routerLink="/admin-absences"  ><i class="bi bi-folder"></i> Absences</a>
+      </li>
+
+      <li>
+        <a  id="profile" routerLink="/admin-profile" ><i class="bi bi-person"></i> Mon profil</a>
+      </li>
+
+
+      <li>
+        <a class="text-danger" routerLink="/login"><i class="bi bi-box-arrow-right"></i> Se déconnecter</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>absences list</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>search</mat-label>
+        <input matInput (change)="filterEmployees($event)">
+      </mat-form-field>
+
+      <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef > ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="firstName">
+          <th mat-header-cell *matHeaderCellDef > firstName </th>
+          <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="duration">
+          <th mat-header-cell *matHeaderCellDef> duration </th>
+          <td mat-cell *matCellDef="let element"> {{element.duration}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> date </th>
+          <td mat-cell *matCellDef="let element">
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="accept">
+          <th mat-header-cell *matHeaderCellDef> accept </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button color="primary" >accept</button>
+          </td>
+        </ng-container>
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+    </mat-card-content>
+  </mat-card>
+</div>

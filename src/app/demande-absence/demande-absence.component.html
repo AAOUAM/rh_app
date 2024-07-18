@@ -31,7 +31,7 @@
   <h1 class=" ml-5">Mes absences</h1>
 </div>
 
-<div class="container mt-4 ml-5 text-center">
+<div class="container mt-4 ml-5 text-center justify-content-center">
 
 
   <div class="d-flex justify-content-between align-items-center mb-4">
@@ -48,7 +48,7 @@
       </button>
     </div>
 
-    <button class="btn btn-primary p-1 ml-0 float-right" routerLink="/formabsence">
+    <button class="btn btn-primary p-1 ml-0 float-right" routerLink="/form absence">
       <i class="bi bi-plus"></i> Ajouter une demande
     </button>
   </div>
@@ -62,15 +62,18 @@
         <th>Date fin</th>
         <th>Nombre de jours</th>
         <th>Type d'absence</th>
+        <th>Etat de la demande</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let d of dossiers">
+      <tr *ngFor="let d of dossiers" [ngClass]="{'table-danger': d.motif === 'sanction'}">
         <td>{{d.numerodossier}}</td>
         <td>{{d.datedebut}}</td>
         <td>{{d.datefin}}</td>
         <td>{{d.nombrejours}}</td>
         <td>{{d.motif}}</td>
+        <td *ngIf="d.etatdemande === 'validé'" class="badge badge-success mt-1">{{ d.etatdemande }}</td>
+        <td *ngIf="d.etatdemande !== 'validé'" class="badge badge-danger mt-1">{{ d.etatdemande }}</td>
       </tr>
       </tbody>
     </table>
