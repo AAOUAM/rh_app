@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import jsPDF from 'jspdf';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-form-absence',
   templateUrl: './form-absence.component.html',
-  styleUrl: './form-absence.component.css'
+  styleUrls: ['./form-absence.component.css']
 })
 export class FormAbsenceComponent {
   absenceForm: FormGroup;
@@ -29,48 +30,70 @@ export class FormAbsenceComponent {
     this.language = lang;
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.absenceForm.valid) {
       const formData = this.absenceForm.value;
-      this.generatePDF(formData);
+      const pdfBytes = await this.generatePDF(formData);
+      this.downloadPDF(pdfBytes);
     }
   }
 
-  generatePDF(data: any) {
-    const doc = new jsPDF();
+  async generatePDF(data: any): Promise<Uint8Array> {
+    const pdfDoc = await PDFDocument.create();
+    const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
 
-    doc.setFontSize(12);
-    doc.text('Royaume du Maroc', 105, 20, { align: 'center' });
-    doc.text('Ministère de l\'Intérieur', 105, 30, { align: 'center' });
-    doc.text('Wilaya de la Région Souss-Massa', 105, 40, { align: 'center' });
-    doc.text('Préfecture d\'Agadir Ida-Outanane', 105, 50, { align: 'center' });
-    doc.text('Secrétariat Général', 105, 60, { align: 'center' });
-    doc.text('Service des Ressources Humaines', 105, 70, { align: 'center' });
+    const page = pdfDoc.addPage();
+    const { width, height } = page.getSize();
+    const fontSize = 12;
+    const textColor = rgb(0, 0, 0);
 
-    doc.text('Demande de congé administratif', 105, 90, { align: 'center' });
+    let yPosition = height - 50;
 
-    doc.text(`Nom et prénom : ${data.nom_complet}`, 20, 110);
-    doc.text(`Remplaçant : ${data.remplacant}`, 20, 120);
-    doc.text(`Grade : ${data.grade}`, 20, 130);
-    doc.text(`Département : ${data.department}`, 20, 140);
-    doc.text(`CIN : ${data.cin}`, 20, 150);
-    doc.text(`Durée du congé : ${data.duration} jours`, 20, 160);
-    doc.text(`Date de début du congé : ${data.start_date}`, 20, 170);
-    doc.text(`Date de reprise du travail : ${data.end_date}`, 20, 180);
+    const addText = (text: string, offsetX: number = 50, offsetY: number = 20) => {
+      yPosition -= offsetY;
+      page.drawText(text, {
+        x: offsetX,
+        y: yPosition,
+        size: fontSize,
+        font: timesRomanFont,
+        color: textColor,
+      });
+    };
 
-    doc.text('La personne concerné(e)', 20, 200);
-    doc.text('...........................', 20, 210);
-    doc.text('Chef de service', 20, 220);
-    doc.text('...........................', 20, 230);
-    doc.text('Chef de département', 20, 240);
-    doc.text('...........................', 20, 250);
+    addText('Royaume du Maroc');
+    addText("Ministère de l'Intérieur");
+    addText('Wilaya de la Région Souss-Massa');
+    addText("Préfecture d'Agadir Ida-Outanane");
+    addText('Secrétariat Général');
+    addText('Service des Ressources Humaines');
+    addText('Demande de congé administratif', 50, 40);
 
-    doc.text('Remarques :', 20, 270);
-    doc.text('• La demande doit être déposée dans ce registre avant la date de début du congé, et en cas d\'urgence, il est nécessaire de contacter le service ;', 20, 280);
-    doc.text('• Le congé ne peut être retiré le jour suivant la date de son début.', 20, 290);
+    addText(`Nom et prénom : ${data.nom_complet}`);
+    addText(`Remplaçant : ${data.remplacant}`);
+    addText(`Grade : ${data.grade}`);
+    addText(`Département : ${data.department}`);
+    addText(`CIN : ${data.cin}`);
+    addText(`Durée du congé : ${data.duration} jours`);
+    addText(`Date de début du congé : ${data.start_date}`);
+    addText(`Date de reprise du travail : ${data.end_date}`);
 
-    doc.save('demande_conge.pdf');
+    addText('La personne concerné(e)', 50, 40);
+    addText('...........................');
+    addText('Chef de service');
+    addText('...........................');
+    addText('Chef de département');
+    addText('...........................');
+
+    addText('Remarques :', 50, 40);
+    addText("• La demande doit être déposée dans ce registre avant la date de début du congé et en cas d'urgence il est nécessaire de contacter le service ;", 50, 20);
+    addText("• Le congé ne peut être retiré le jour suivant la date de son début.", 50, 20);
+
+    const pdfBytes = await pdfDoc.save();
+    return pdfBytes;
   }
 
+  downloadPDF(pdfBytes: Uint8Array) {
+    const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+    saveAs(blob, 'demande_congé_administratif.pdf');
+  }
 }
-

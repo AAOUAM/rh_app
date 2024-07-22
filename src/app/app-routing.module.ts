@@ -13,6 +13,8 @@ import {HomeAdminComponent} from "./home-admin/home-admin.component";
 import {AddEmployeeComponent} from "./add-employee/add-employee.component";
 import {PersonalInformationComponent} from "./personal-information/personal-information.component";
 import {AdministrativeInformationComponent} from "./administrative-information/administrative-information.component";
+import {PieceJointesComponent} from "./piece-jointes/piece-jointes.component";
+import {FormationComponent} from "./formation/formation.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,8 +23,10 @@ const routes: Routes = [
   {path : 'form absence' , component : FormAbsenceComponent},
   {path : 'absence' , component : DemandeAbsenceComponent},
   {path : 'dossier' , component : DossierComponent},
+  {path : 'formation' , component : FormationComponent},
 
   { path: 'admin-employees', component: AdminEmployeesComponent },
+  { path: 'pieces jointes', component: PieceJointesComponent },
   { path: 'admin-absences', component: AdminAbsencesComponent },
   { path: 'admin-profile', component: AdminProfileComponent },
   { path: 'home-admin', component: HomeAdminComponent},

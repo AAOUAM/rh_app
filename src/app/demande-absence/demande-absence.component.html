@@ -11,7 +11,7 @@
       </li>
 
       <li>
-        <a href="#"><i class="bi bi-book"></i> Mes formations</a>
+        <a routerLink="/formation"><i class="bi bi-book"></i> Mes formations</a>
       </li>
 
       <li>
@@ -42,7 +42,7 @@
     </div>
 
     <div class="input-group w-50 ml-4">
-      <input type="text" class="form-control" placeholder="Rechercher...">
+      <input type="text" class="form-control" placeholder="Rechercher..." [(ngModel)]="searchText">
       <button class="btn btn-outline-success" type="button">
         <i class="bi bi-search"></i>
       </button>
@@ -66,7 +66,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let d of dossiers" [ngClass]="{'table-danger': d.motif === 'sanction'}">
+      <tr *ngFor="let d of filteredDossiers" [ngClass]="{'table-danger': d.motif === 'sanction'}">
         <td>{{d.numerodossier}}</td>
         <td>{{d.datedebut}}</td>
         <td>{{d.datefin}}</td>
@@ -81,7 +81,8 @@
 </div>
 
 <footer class="bg-light text-center mt-5">
-  <div class="p-3">
-    <p>© 2024 Application RH. Tous droits réservés.</p>
+  <div class="p-1">
+    <p>© 2024 Application RH WILAYA Région Souss Massa. Tous droits réservés.</p>
   </div>
 </footer>
+

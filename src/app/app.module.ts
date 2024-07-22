@@ -40,6 +40,8 @@ import { MatIconModule} from "@angular/material/icon";
 import { MatMenuItem, MatMenuModule, MatMenuTrigger} from "@angular/material/menu";
 import { MatSidenavModule} from "@angular/material/sidenav";
 import {MatListItem, MatNavList} from "@angular/material/list";
+import { PieceJointesComponent } from './piece-jointes/piece-jointes.component';
+import { FormationComponent } from './formation/formation.component';
 
 
 
@@ -60,6 +62,8 @@ import {MatListItem, MatNavList} from "@angular/material/list";
     AddEmployeeComponent,
     PersonalInformationComponent,
     AdministrativeInformationComponent,
+    PieceJointesComponent,
+    FormationComponent,
 
   ],
 

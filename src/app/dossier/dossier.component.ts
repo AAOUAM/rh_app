@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dossier',
@@ -6,7 +7,9 @@ import {Component, OnInit} from '@angular/core';
   styleUrl: './dossier.component.css'
 })
 export class DossierComponent implements OnInit{
-  selectedSection = '';
+  editingSection: string | null = null;
+  editForm!: FormGroup;
+  selectedSection = 'personnelle';
 
   dossier = {
     cin :'J478521',
@@ -79,7 +82,16 @@ export class DossierComponent implements OnInit{
   }
 
   editSection(section: string): void {
-    // Logique pour éditer la section. Vous pouvez ajouter un formulaire modale ici.
-    //alert('Modification de la section ' + section);
+    this.editingSection = section;
+    this.editForm.patchValue(this.dossier);
+  }
+
+  saveSection() {
+    Object.assign(this.dossier, this.editForm.value);
+    this.editingSection = null;
+  }
+
+  cancelEdit() {
+    this.editingSection = null;
   }
 }

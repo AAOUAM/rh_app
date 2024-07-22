@@ -9,7 +9,7 @@
         <a routerLink="/absence"><i class="bi bi-calendar-x"></i> Mes demandes d'absences</a>
       </li>
       <li>
-        <a href="#"><i class="bi bi-book"></i> Mes formations</a>
+        <a routerLink="/formation"><i class="bi bi-book"></i> Mes formations</a>
       </li>
       <li>
         <a routerLink="/dossier"><i class="bi bi-folder"></i> Mon dossier</a>
@@ -22,12 +22,12 @@
 </header>
 
 <div class="mt-4 d-flex justify-content-between align-items-center mb-4">
-  <h1 class=" ml-5">Mes informations</h1>
-  <button routerLink ='/' class="btn btn-info p-1 text-white mr-3"><i class="bi bi-paperclip"></i>Pièces Jointes</button>
+  <h1 class="ml-5">Mes informations</h1>
+  <button routerLink='/pieces jointes' class="btn btn-info p-1 text-white mr-3"><i class="bi bi-paperclip"></i>Pièces Jointes</button>
 </div>
 
 <div class="mb-5">
-  <div class="row ">
+  <div class="row">
     <!-- Navigation à gauche -->
     <div class="col-md-3 mr-auto ml-auto mt-4">
       <div class="list-group">
@@ -49,39 +49,76 @@
     <!-- Informations personnelles -->
     <div class="col-md-7 mr-auto ">
       <!-- Informations Personnelles -->
-      <div *ngIf="selectedSection === 'personnelle'" class="card shadow mb-4">
+      <div *ngIf="selectedSection === 'personnelle'" class="card shadow mb-4 ">
         <div class="card-header bg-primary text-white d-flex justify-content-between">
-          <span class="ml-2 p-1"> <strong>Informations Personnelles</strong></span>
-          <button class="btn btn-light mr-2 bg-transparent border-0" (click)="editSection('personnelle')"> <i class="bi bi-pen p-1 text-black"></i> </button>
+          <span class="ml-2 p-1"><strong>Informations Personnelles</strong></span>
+          <button class="btn btn-light mr-2 bg-transparent border-0" (click)="editSection('personnelle')"><i class="bi bi-pen p-1 text-black"></i></button>
         </div>
-        <div class="card-body d-flex">
-          <div class="mr-4 p-2">
-            <p><strong>Numéro de la carte nationale d'identié :</strong> {{ dossier.cin }}</p>
-            <p><strong>Nom :</strong> {{ dossier.nom }}</p>
-            <p><strong>Prénom :</strong> {{ dossier.prenom }}</p>
-            <p><strong>Sexe :</strong> {{ dossier.sexe }}</p>
-            <p><strong>Date de naissance :</strong> {{ dossier.dateNaissance }}</p>
-            <p><strong>Lieu de naissance :</strong> {{ dossier.lieuNaissance }}</p>
-            <p><strong>Adresse :</strong> {{ dossier.adresse }}</p>
-            <p><strong>Téléphone :</strong> {{ dossier.numTel }}</p>
-            <p><strong>Email :</strong> {{ dossier.email }}</p>
-          </div>
+        <div class="card-body p-2" *ngIf="editingSection !== 'personnelle'">
+          <p><strong>Numéro de la carte nationale d'identité :</strong> {{ dossier.cin }}</p>
+          <p><strong>Nom :</strong> {{ dossier.nom }}</p>
+          <p><strong>Prénom :</strong> {{ dossier.prenom }}</p>
+          <p><strong>Sexe :</strong> {{ dossier.sexe }}</p>
+          <p><strong>Date de naissance :</strong> {{ dossier.dateNaissance }}</p>
+          <p><strong>Lieu de naissance :</strong> {{ dossier.lieuNaissance }}</p>
+          <p><strong>Adresse :</strong> {{ dossier.adresse }}</p>
+          <p><strong>Téléphone :</strong> {{ dossier.numTel }}</p>
+          <p><strong>Email :</strong> {{ dossier.email }}</p>
+        </div>
+        <div class="card-body" *ngIf="editingSection === 'personnelle'">
+          <form [formGroup]="editForm" (ngSubmit)="saveSection()" class="p-3">
+            <div class="form-group">
+              <label for="cin">Numéro de la carte nationale d'identité</label>
+              <input id="cin" formControlName="cin" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="nom">Nom</label>
+              <input id="nom" formControlName="nom" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="prenom">Prénom</label>
+              <input id="prenom" formControlName="prenom" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="sexe">Sexe</label>
+              <input id="sexe" formControlName="sexe" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="dateNaissance">Date de naissance</label>
+              <input id="dateNaissance" formControlName="dateNaissance" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="lieuNaissance">Lieu de naissance</label>
+              <input id="lieuNaissance" formControlName="lieuNaissance" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="adresse">Adresse</label>
+              <input id="adresse" formControlName="adresse" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="numTel">Téléphone</label>
+              <input id="numTel" formControlName="numTel" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" formControlName="email" class="form-control">
+            </div>
+            <div class="d-flex justify-content-between mt-3 p-2">
+              <button type="submit" class="btn btn-success p-2">Enregistrer</button>
+              <button type="button" class="btn btn-secondary p-2" (click)="cancelEdit()">Annuler</button>
+            </div>
 
-          <div class="mr-5 mt-5 ml-auto">
-            <img src="assets/profile-photo.webp" alt="Profile Photo" class="img-fluid rounded-circle" width="150" height="150">
-          </div>
+          </form>
         </div>
       </div>
 
       <!-- Informations Familiales -->
       <div *ngIf="selectedSection === 'familiale'" class="card shadow mb-4">
         <div class="card-header bg-secondary text-white d-flex justify-content-between">
-          <span class="ml-2 p-1"> <strong>Informations Familiales</strong></span>
-          <button class="btn btn-light mr-2 bg-transparent border-0" (click)="editSection('familiale')">
-            <i class="bi bi-pen p-1 text-black"></i>
-          </button>
+          <span class="ml-2 p-1"><strong>Informations Familiales</strong></span>
+          <button class="btn btn-light mr-2 bg-transparent border-0" (click)="editSection('familiale')"><i class="bi bi-pen p-1 text-black"></i></button>
         </div>
-        <div class="card-body p-2">
+        <div class="card-body p-2" *ngIf="editingSection !== 'familiale'">
           <p><strong>Nom du Père :</strong> {{ dossier.nomPere }}</p>
           <p><strong>Nom de la Mère :</strong> {{ dossier.nomMere }}</p>
           <p><strong>Situation Familiale :</strong> {{ dossier.situationFamiliale }}</p>
@@ -96,43 +133,92 @@
             <p><strong>Date de Naissance :</strong> {{ enfant.dateNaissance }}</p>
           </div>
         </div>
+        <div class="card-body" *ngIf="editingSection === 'familiale'">
+          <form [formGroup]="editForm" (ngSubmit)="saveSection()" class="p-3">
+            <div class="form-group">
+              <label for="nomPere">Nom du Père</label>
+              <input id="nomPere" formControlName="nomPere" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="nomMere">Nom de la Mère</label>
+              <input id="nomMere" formControlName="nomMere" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="situationFamiliale">Situation Familiale</label>
+              <input id="situationFamiliale" formControlName="situationFamiliale" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="dateMariage">Date de Mariage</label>
+              <input id="dateMariage" formControlName="dateMariage" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="nomConjoint">Nom du Conjoint</label>
+              <input id="nomConjoint" formControlName="nomConjoint" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="cinConjoint">CIN du Conjoint</label>
+              <input id="cinConjoint" formControlName="cinConjoint" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="dateNaissanceConjoint">Date de Naissance du Conjoint</label>
+              <input id="dateNaissanceConjoint" formControlName="dateNaissanceConjoint" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="fonctionConjoint">Fonction du Conjoint</label>
+              <input id="fonctionConjoint" formControlName="fonctionConjoint" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="nombreEnfants">Nombre d'Enfants</label>
+              <input id="nombreEnfants" formControlName="nombreEnfants" class="form-control">
+            </div>
+            <div *ngFor="let enfant of dossier.listEnfants; let i = index">
+              <div class="form-group">
+                <label for="prenomEnfant-{{i}}">Prénom de l'Enfant</label>
+                <input id="prenomEnfant-{{i}}" [formControlName]="'prenomEnfant' + i" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="dateNaissanceEnfant-{{i}}">Date de Naissance</label>
+                <input id="dateNaissanceEnfant-{{i}}" [formControlName]="'dateNaissanceEnfant' + i" class="form-control">
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3 p-2">
+              <button type="submit" class="btn btn-success p-2">Enregistrer</button>
+              <button type="button" class="btn btn-secondary p-2" (click)="cancelEdit()">Annuler</button>
+            </div>
+          </form>
+        </div>
       </div>
 
       <!-- Informations Administratives -->
       <div *ngIf="selectedSection === 'administrative'" class="card shadow mb-4">
         <div class="card-header bg-success text-white d-flex justify-content-between">
-          <span class="ml-2 p-1"> <strong>Informations Administratives</strong></span>
-          <button class="btn btn-light mr-2 bg-transparent border-0" (click)="editSection('administrative')">
-            <i class="bi bi-pen p-1 text-black"></i>
-          </button>
+          <span class="ml-2 p-1"><strong>Informations Administratives</strong></span>
         </div>
-        <div class="card-body p-2">
+        <div class="card-body p-2" *ngIf="editingSection !== 'administrative'">
           <p><strong>PPR (Numéro d'immatriculation) :</strong> {{ dossier.numeroEmploye }}</p>
           <p><strong>PB (N° poste budgétaire) :</strong> {{ dossier.departement }}</p>
           <p><strong>Date de recrutement :</strong> {{ dossier.poste }}</p>
           <p><strong>Diplome de recrutement :</strong> {{ dossier.dateEmbauche }}</p>
-          <p><strong>administration de recrutement :</strong> {{ dossier.numeroSecuriteSociale }}</p>
+          <p><strong>Administration de recrutement :</strong> {{ dossier.numeroSecuriteSociale }}</p>
           <p><strong>Date titularisation :</strong> {{ dossier.mutuelle }}</p>
           <p><strong>Grade actuelle :</strong> {{ dossier.regimeRetraite }}</p>
           <p><strong>Echelle actuelle :</strong> {{ dossier.regimeRetraite }}</p>
           <p><strong>Echelon actuelle :</strong> {{ dossier.regimeRetraite }}</p>
           <p><strong>Indice :</strong> {{ dossier.regimeRetraite }}</p>
-          <p><strong>statut administrative :</strong> {{ dossier.regimeRetraite }}</p>
-          <p><strong>situation administrative :</strong> {{ dossier.regimeRetraite }}</p>
+          <p><strong>Statut administrative :</strong> {{ dossier.regimeRetraite }}</p>
+          <p><strong>Situation administrative :</strong> {{ dossier.regimeRetraite }}</p>
         </div>
       </div>
 
       <!-- Informations de Prévoyance Sociale -->
       <div *ngIf="selectedSection === 'prevoyance'" class="card shadow mb-4">
         <div class="card-header bg-danger text-white d-flex justify-content-between">
-          <span class="ml-2 p-1"> <strong>Informations de Prévoyance Sociale</strong></span>
-          <button class="btn btn-light mr-2 bg-transparent border-0" (click)="editSection('prevoyance')">
-            <i class="bi bi-pen p-1 text-black"></i>
-          </button>
+          <span class="ml-2 p-1"><strong>Informations de Prévoyance Sociale</strong></span>
+          <button class="btn btn-light mr-2 bg-transparent border-0" (click)="editSection('prevoyance')"><i class="bi bi-pen p-1 text-black"></i></button>
         </div>
-        <div class="card-body p-2">
+        <div class="card-body p-2" *ngIf="editingSection !== 'prevoyance'">
           <p><strong>Organisme de retraite :</strong> {{ dossier.numeroSecuriteSociale }}</p>
-          <p><strong>Numéro d'affiliation de retraite:</strong> {{ dossier.mutuelle }}</p>
+          <p><strong>Numéro d'affiliation de retraite :</strong> {{ dossier.mutuelle }}</p>
           <p><strong>Date d'affiliation de retraite :</strong> {{ dossier.regimeRetraite }}</p>
           <p><strong>Organisme de prévoyance sociale :</strong> {{ dossier.regimeRetraite }}</p>
           <p><strong>N° d'affiliation CNOPS :</strong> {{ dossier.regimeRetraite }}</p>
@@ -141,16 +227,62 @@
           <p><strong>N° d'affiliation fondation HASSAN II :</strong> {{ dossier.regimeRetraite }}</p>
           <p><strong>Organisme d'assurance :</strong> {{ dossier.regimeRetraite }}</p>
           <p><strong>N° d'affiliation assurance :</strong> {{ dossier.regimeRetraite }}</p>
-
+        </div>
+        <div class="card-body" *ngIf="editingSection === 'prevoyance'">
+          <form [formGroup]="editForm" (ngSubmit)="saveSection()" class="p-3">
+            <div class="form-group">
+              <label for="organismeRetraite">Organisme de retraite</label>
+              <input id="organismeRetraite" formControlName="organismeRetraite" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="numAffiliationRetraite">Numéro d'affiliation de retraite</label>
+              <input id="numAffiliationRetraite" formControlName="numAffiliationRetraite" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="dateAffiliationRetraite">Date d'affiliation de retraite</label>
+              <input id="dateAffiliationRetraite" formControlName="dateAffiliationRetraite" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="organismePrevoyance">Organisme de prévoyance sociale</label>
+              <input id="organismePrevoyance" formControlName="organismePrevoyance" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="numAffiliationCNOPS">N° d'affiliation CNOPS</label>
+              <input id="numAffiliationCNOPS" formControlName="numAffiliationCNOPS" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="numImmatriculationCNOPS">N° d'immatriculation CNOPS</label>
+              <input id="numImmatriculationCNOPS" formControlName="numImmatriculationCNOPS" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="dateAffiliationCNOPS">Date d'affiliation CNOPS</label>
+              <input id="dateAffiliationCNOPS" formControlName="dateAffiliationCNOPS" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="numAffiliationHassanII">N° d'affiliation fondation HASSAN II</label>
+              <input id="numAffiliationHassanII" formControlName="numAffiliationHassanII" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="organismeAssurance">Organisme d'assurance</label>
+              <input id="organismeAssurance" formControlName="organismeAssurance" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="numAffiliationAssurance">N° d'affiliation assurance</label>
+              <input id="numAffiliationAssurance" formControlName="numAffiliationAssurance" class="form-control">
+            </div>
+            <div class="d-flex justify-content-between mt-3 p-2">
+              <button type="submit" class="btn btn-success p-2">Enregistrer</button>
+              <button type="button" class="btn btn-secondary p-2" (click)="cancelEdit()">Annuler</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-
-<footer class="bg-light text-center ">
+<footer class="bg-light text-center mt-5">
   <div class="p-1">
-    <p>© 2024 Application RH. Tous droits réservés.</p>
+    <p>© 2024 Application RH WILAYA Région Souss Massa. Tous droits réservés.</p>
   </div>
 </footer>

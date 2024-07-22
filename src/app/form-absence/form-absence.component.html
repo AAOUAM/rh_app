@@ -11,7 +11,7 @@
       </li>
 
       <li>
-        <a href="#"><i class="bi bi-book"></i> Mes formations</a>
+        <a routerLink="/formation"><i class="bi bi-book"></i> Mes formations</a>
       </li>
 
       <li>
@@ -73,7 +73,7 @@
         <input type="text" class="form-control" id="reason_fr" formControlName="reason" placeholder="Motif de l'absence" required>
       </div>
       <div class="d-flex justify-content-center p-3">
-        <button type="submit" class="btn btn-success mt-3 p-2">Je confirme</button>
+        <button type="submit" class="btn btn-success mt-3 p-2 " >Je confirme</button>
       </div>
     </form>
 
@@ -115,9 +115,14 @@
         <input type="text" class="form-control" id="reason_ar" formControlName="reason" placeholder="سبب الغياب" required>
       </div>
       <div class="d-flex justify-content-center p-3">
-        <button type="submit" class="btn btn-success mt-3 p-2">أؤكد</button>
+        <button type="submit" class="btn btn-success mt-3 p-2 " routerLink="/absence">أؤكد</button>
       </div>
     </form>
   </div>
 </div>
 
+<footer class="bg-light text-center mt-5">
+  <div class="p-1">
+    <p>© 2024 Application RH WILAYA Région Souss Massa. Tous droits réservés.</p>
+  </div>
+</footer>
