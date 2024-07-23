@@ -10,7 +10,7 @@ export class AdminAbsencesComponent implements OnInit{
 
   public employees : any;
   public dataSource : any;
-  public displayedColumns = ["id","firstName","duration","date","accept"];
+  public displayedColumns = ["id","firstName","duration","date","accepter","refuser"];
   constructor() {
   }
   ngOnInit() {

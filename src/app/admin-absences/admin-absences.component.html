@@ -26,7 +26,7 @@
   </div>
 </header>
 
-<div class="container">
+<div class="container-mat">
   <mat-card>
     <mat-card-header>
       <mat-card-title>absences list</mat-card-title>
@@ -64,10 +64,17 @@
           </td>
         </ng-container>
 
-        <ng-container matColumnDef="accept">
-          <th mat-header-cell *matHeaderCellDef> accept </th>
+        <ng-container matColumnDef="accepter">
+          <th mat-header-cell *matHeaderCellDef> accepter </th>
           <td mat-cell *matCellDef="let element">
-            <button mat-raised-button color="primary" >accept</button>
+            <button mat-raised-button style="background-color: green">accepter</button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="refuser">
+          <th mat-header-cell *matHeaderCellDef> refuser </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button style="background-color: red" >refuser</button>
           </td>
         </ng-container>
 

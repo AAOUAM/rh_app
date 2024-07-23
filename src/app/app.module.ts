@@ -42,6 +42,7 @@ import { MatSidenavModule} from "@angular/material/sidenav";
 import {MatListItem, MatNavList} from "@angular/material/list";
 import { PieceJointesComponent } from './piece-jointes/piece-jointes.component';
 import { FormationComponent } from './formation/formation.component';
+import { AdminFormationComponent } from './admin-formation/admin-formation.component';
 
 
 
@@ -64,6 +65,7 @@ import { FormationComponent } from './formation/formation.component';
     AdministrativeInformationComponent,
     PieceJointesComponent,
     FormationComponent,
+    AdminFormationComponent,
 
   ],
 

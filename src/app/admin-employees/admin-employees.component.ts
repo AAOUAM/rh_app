@@ -13,7 +13,7 @@ export class AdminEmployeesComponent implements OnInit{
 
   public employees : any;
   public dataSource : any;
-  public displayedColumns = ["id","firstName","lastName","personal","administrative"];
+  public displayedColumns = ["id","firstName","lastName","personal","administrative","familial", "formations"];
   constructor() {
   }
   ngOnInit() {
@@ -24,6 +24,7 @@ export class AdminEmployeesComponent implements OnInit{
           id: i,
           firstName: Math.random().toString(20),
           lastName: Math.random().toString(20),
+          departement : Math.random().toString(20),
         }
 
 
